@@ -1,0 +1,111 @@
+{
+	"id": "44309376-9e29-4683-8865-62e744125f74",
+	"name": "Dev QA auto",
+	"values": [
+		{
+			"key": "URL",
+			"value": "https://qauto2.forstudy.space/api/",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "isEmailValid",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testCases",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testIndex",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "randomEmail",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "randomPassword",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testEmail",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testPassword",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testDescription",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testName",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testLastName",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testDateBirth",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testCountry",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testPhoto",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "passNew",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "carId",
+			"value": null,
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "",
+			"value": "",
+			"type": "default",
+			"enabled": false
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-02-27T17:04:46.131Z",
+	"_postman_exported_using": "Postman/11.33.5"
+}
