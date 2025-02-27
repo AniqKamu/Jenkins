@@ -1,0 +1,987 @@
+{
+	"id": "4282f444-d896-4a60-a134-6b310a3ac8ec",
+	"name": "Test_2025 Optim",
+	"timestamp": "2025-02-12T12:51:14.956Z",
+	"collection_id": "12652027-8c9559f8-0f80-41bb-b091-a3c0e4f24a71",
+	"folder_id": 0,
+	"environment_id": "12652027-44309376-9e29-4683-8865-62e744125f74",
+	"totalPass": 276,
+	"delay": "300",
+	"persist": true,
+	"status": "error",
+	"startedAt": "2025-02-12T12:50:42.010Z",
+	"totalFail": 54,
+	"results": [
+		{
+			"id": "b1fadec1-ded9-4ad9-b273-3a0ee96c8f85",
+			"name": "Option",
+			"url": "https://qauto.forstudy.space/api",
+			"time": 98,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Response body is present": true,
+				"Content-Type header is present": false,
+				"Access-Control-Allow-Methods header is present": true,
+				"Status code is 204": true,
+				"Cookies are not present in the response": true
+			},
+			"testPassFailCounts": {
+				"Response body is present": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Content-Type header is present": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Access-Control-Allow-Methods header is present": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Status code is 204": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Cookies are not present in the response": {
+					"pass": 6,
+					"fail": 0
+				}
+			},
+			"times": [
+				467,
+				100,
+				144,
+				396,
+				120,
+				98
+			],
+			"allTests": [
+				{
+					"Response body is present": true,
+					"Content-Type header is present": false,
+					"Access-Control-Allow-Methods header is present": true,
+					"Status code is 204": true,
+					"Cookies are not present in the response": true
+				},
+				{
+					"Response body is present": true,
+					"Content-Type header is present": false,
+					"Access-Control-Allow-Methods header is present": true,
+					"Status code is 204": true,
+					"Cookies are not present in the response": true
+				},
+				{
+					"Response body is present": true,
+					"Content-Type header is present": false,
+					"Access-Control-Allow-Methods header is present": true,
+					"Status code is 204": true,
+					"Cookies are not present in the response": true
+				},
+				{
+					"Response body is present": true,
+					"Content-Type header is present": false,
+					"Access-Control-Allow-Methods header is present": true,
+					"Status code is 204": true,
+					"Cookies are not present in the response": true
+				},
+				{
+					"Response body is present": true,
+					"Content-Type header is present": false,
+					"Access-Control-Allow-Methods header is present": true,
+					"Status code is 204": true,
+					"Cookies are not present in the response": true
+				},
+				{
+					"Response body is present": true,
+					"Content-Type header is present": false,
+					"Access-Control-Allow-Methods header is present": true,
+					"Status code is 204": true,
+					"Cookies are not present in the response": true
+				}
+			]
+		},
+		{
+			"id": "4875352e-77c5-413d-b61c-2cfbc8048bb8",
+			"name": "Head",
+			"url": "https://qauto.forstudy.space/api",
+			"time": 88,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Successful request": false,
+				"Response time is less than 500ms": true,
+				"Verify response code is 404": true,
+				"Verify the existence of required headers": true
+			},
+			"testPassFailCounts": {
+				"Successful request": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Response time is less than 500ms": {
+					"pass": 11,
+					"fail": 0
+				},
+				"Verify response code is 404": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Verify the existence of required headers": {
+					"pass": 6,
+					"fail": 0
+				}
+			},
+			"times": [
+				99,
+				105,
+				114,
+				114,
+				93,
+				88
+			],
+			"allTests": [
+				{
+					"Successful request": false,
+					"Response time is less than 500ms": true,
+					"Verify response code is 404": true,
+					"Verify the existence of required headers": true
+				},
+				{
+					"Successful request": false,
+					"Response time is less than 500ms": true,
+					"Verify response code is 404": true,
+					"Verify the existence of required headers": true
+				},
+				{
+					"Successful request": false,
+					"Response time is less than 500ms": true,
+					"Verify response code is 404": true,
+					"Verify the existence of required headers": true
+				},
+				{
+					"Successful request": false,
+					"Response time is less than 500ms": true,
+					"Verify response code is 404": true,
+					"Verify the existence of required headers": true
+				},
+				{
+					"Successful request": false,
+					"Response time is less than 500ms": true,
+					"Verify response code is 404": true,
+					"Verify the existence of required headers": true
+				},
+				{
+					"Successful request": false,
+					"Response time is less than 500ms": true,
+					"Verify response code is 404": true,
+					"Verify the existence of required headers": true
+				}
+			]
+		},
+		{
+			"id": "b6e81b18-8a85-4c6a-8b2b-17210293dd3f",
+			"name": "Registers users in the system.",
+			"url": "https://qauto.forstudy.space/api/auth/signup",
+			"time": 102,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Перевірка наявності поля 'name'": true,
+				"Перевірка наявності поля 'lastName'": true,
+				"Перевірка наявності поля 'email'": true,
+				"Перевірка наявності поля 'password'": true,
+				"Перевірка наявності поля 'repeatPassword'": true,
+				"Перевірка формату email": true,
+				"Перевірка збігу пароля і повторення пароля": true,
+				"Перевірка мінімальної довжини пароля": true,
+				"Пароль містить хоча б одну велику літеру": true,
+				"Пароль містить хоча б одну маленьку літеру": true,
+				"Пароль містить хоча б одну цифру": false,
+				"Статус 201 чи 400": true,
+				"Перевірка помилки": true
+			},
+			"testPassFailCounts": {
+				"Перевірка наявності поля 'name'": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності поля 'lastName'": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності поля 'email'": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності поля 'password'": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності поля 'repeatPassword'": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка формату email": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка збігу пароля і повторення пароля": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка мінімальної довжини пароля": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Пароль містить хоча б одну велику літеру": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Пароль містить хоча б одну маленьку літеру": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Пароль містить хоча б одну цифру": {
+					"pass": 4,
+					"fail": 2
+				},
+				"Статус 201 чи 400": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка помилки": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка структури успішної відповіді": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				116,
+				101,
+				814,
+				823,
+				825,
+				102
+			],
+			"allTests": [
+				{
+					"Перевірка наявності поля 'name'": true,
+					"Перевірка наявності поля 'lastName'": true,
+					"Перевірка наявності поля 'email'": true,
+					"Перевірка наявності поля 'password'": true,
+					"Перевірка наявності поля 'repeatPassword'": true,
+					"Перевірка формату email": true,
+					"Перевірка збігу пароля і повторення пароля": true,
+					"Перевірка мінімальної довжини пароля": true,
+					"Пароль містить хоча б одну велику літеру": true,
+					"Пароль містить хоча б одну маленьку літеру": true,
+					"Пароль містить хоча б одну цифру": true,
+					"Статус 201 чи 400": true,
+					"Перевірка помилки": true
+				},
+				{
+					"Перевірка наявності поля 'name'": true,
+					"Перевірка наявності поля 'lastName'": true,
+					"Перевірка наявності поля 'email'": true,
+					"Перевірка наявності поля 'password'": true,
+					"Перевірка наявності поля 'repeatPassword'": true,
+					"Перевірка формату email": true,
+					"Перевірка збігу пароля і повторення пароля": true,
+					"Перевірка мінімальної довжини пароля": true,
+					"Пароль містить хоча б одну велику літеру": true,
+					"Пароль містить хоча б одну маленьку літеру": true,
+					"Пароль містить хоча б одну цифру": true,
+					"Статус 201 чи 400": true,
+					"Перевірка помилки": true
+				},
+				{
+					"Перевірка наявності поля 'name'": true,
+					"Перевірка наявності поля 'lastName'": true,
+					"Перевірка наявності поля 'email'": true,
+					"Перевірка наявності поля 'password'": true,
+					"Перевірка наявності поля 'repeatPassword'": true,
+					"Перевірка формату email": true,
+					"Перевірка збігу пароля і повторення пароля": true,
+					"Перевірка мінімальної довжини пароля": true,
+					"Пароль містить хоча б одну велику літеру": true,
+					"Пароль містить хоча б одну маленьку літеру": true,
+					"Пароль містить хоча б одну цифру": false,
+					"Статус 201 чи 400": true,
+					"Перевірка структури успішної відповіді": true
+				},
+				{
+					"Перевірка наявності поля 'name'": true,
+					"Перевірка наявності поля 'lastName'": true,
+					"Перевірка наявності поля 'email'": true,
+					"Перевірка наявності поля 'password'": true,
+					"Перевірка наявності поля 'repeatPassword'": true,
+					"Перевірка формату email": true,
+					"Перевірка збігу пароля і повторення пароля": true,
+					"Перевірка мінімальної довжини пароля": true,
+					"Пароль містить хоча б одну велику літеру": true,
+					"Пароль містить хоча б одну маленьку літеру": true,
+					"Пароль містить хоча б одну цифру": true,
+					"Статус 201 чи 400": true,
+					"Перевірка структури успішної відповіді": true
+				},
+				{
+					"Перевірка наявності поля 'name'": true,
+					"Перевірка наявності поля 'lastName'": true,
+					"Перевірка наявності поля 'email'": true,
+					"Перевірка наявності поля 'password'": true,
+					"Перевірка наявності поля 'repeatPassword'": true,
+					"Перевірка формату email": true,
+					"Перевірка збігу пароля і повторення пароля": true,
+					"Перевірка мінімальної довжини пароля": true,
+					"Пароль містить хоча б одну велику літеру": true,
+					"Пароль містить хоча б одну маленьку літеру": true,
+					"Пароль містить хоча б одну цифру": true,
+					"Статус 201 чи 400": true,
+					"Перевірка структури успішної відповіді": true
+				},
+				{
+					"Перевірка наявності поля 'name'": true,
+					"Перевірка наявності поля 'lastName'": true,
+					"Перевірка наявності поля 'email'": true,
+					"Перевірка наявності поля 'password'": true,
+					"Перевірка наявності поля 'repeatPassword'": true,
+					"Перевірка формату email": true,
+					"Перевірка збігу пароля і повторення пароля": true,
+					"Перевірка мінімальної довжини пароля": true,
+					"Пароль містить хоча б одну велику літеру": true,
+					"Пароль містить хоча б одну маленьку літеру": true,
+					"Пароль містить хоча б одну цифру": false,
+					"Статус 201 чи 400": true,
+					"Перевірка помилки": true
+				}
+			]
+		},
+		{
+			"id": "b00078b3-61f0-405c-bb38-ccb5d03f110d",
+			"name": "Login",
+			"url": "https://qauto.forstudy.space/api/auth/signin",
+			"time": 103,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Перевірка: Обидва поля порожні": true,
+				"Перевірка: Email є порожнім": true,
+				"Перевірка: Пароль є порожнім": true,
+				"Перевірка: Код відповіді 200 або 400": true,
+				"Перевірка: Статус відповіді 'error'": true,
+				"Перевірка: Поле 'message' існує і є рядком": true
+			},
+			"testPassFailCounts": {
+				"Перевірка: Порожній пароль": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Перевірка: Пароль є порожнім": {
+					"pass": 4,
+					"fail": 0
+				},
+				"Перевірка: Код відповіді 200 або 400": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка: Статус відповіді 'error'": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: Поле 'message' існує і є рядком": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: Обидва поля порожні": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Перевірка: Email є порожнім": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: Числове значення країни": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Перевірка: Статус відповіді 'ok'": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: Поле 'data' існує": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: 'userId' є числом": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: 'distanceUnits' є рядком": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: 'currency' є рядком": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Перевірка: Порожній email": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				433,
+				444,
+				467,
+				469,
+				482,
+				103
+			],
+			"allTests": [
+				{
+					"Перевірка: Порожній пароль": true,
+					"Перевірка: Пароль є порожнім": true,
+					"Перевірка: Код відповіді 200 або 400": true,
+					"Перевірка: Статус відповіді 'error'": true,
+					"Перевірка: Поле 'message' існує і є рядком": true
+				},
+				{
+					"Перевірка: Обидва поля порожні": true,
+					"Перевірка: Email є порожнім": true,
+					"Перевірка: Пароль є порожнім": true,
+					"Перевірка: Код відповіді 200 або 400": true,
+					"Перевірка: Статус відповіді 'error'": true,
+					"Перевірка: Поле 'message' існує і є рядком": true
+				},
+				{
+					"Перевірка: Числове значення країни": true,
+					"Перевірка: Код відповіді 200 або 400": true,
+					"Перевірка: Статус відповіді 'ok'": true,
+					"Перевірка: Поле 'data' існує": true,
+					"Перевірка: 'userId' є числом": true,
+					"Перевірка: 'distanceUnits' є рядком": true,
+					"Перевірка: 'currency' є рядком": true
+				},
+				{
+					"Перевірка: Порожній email": true,
+					"Перевірка: Email є порожнім": true,
+					"Перевірка: Код відповіді 200 або 400": true,
+					"Перевірка: Статус відповіді 'ok'": true,
+					"Перевірка: Поле 'data' існує": true,
+					"Перевірка: 'userId' є числом": true,
+					"Перевірка: 'distanceUnits' є рядком": true,
+					"Перевірка: 'currency' є рядком": true
+				},
+				{
+					"Перевірка: Порожній пароль": true,
+					"Перевірка: Пароль є порожнім": true,
+					"Перевірка: Код відповіді 200 або 400": true,
+					"Перевірка: Статус відповіді 'ok'": true,
+					"Перевірка: Поле 'data' існує": true,
+					"Перевірка: 'userId' є числом": true,
+					"Перевірка: 'distanceUnits' є рядком": true,
+					"Перевірка: 'currency' є рядком": true
+				},
+				{
+					"Перевірка: Обидва поля порожні": true,
+					"Перевірка: Email є порожнім": true,
+					"Перевірка: Пароль є порожнім": true,
+					"Перевірка: Код відповіді 200 або 400": true,
+					"Перевірка: Статус відповіді 'error'": true,
+					"Перевірка: Поле 'message' існує і є рядком": true
+				}
+			]
+		},
+		{
+			"id": "0e86425c-6dac-4728-be1e-847d7e7cbc90",
+			"name": "Creates new car",
+			"url": "https://qauto.forstudy.space/api/cars",
+			"time": 110,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Перевірка наявності обов'язкових полів": true,
+				"Перевірка типів даних у запиті": true,
+				"Перевірка: Пробіг не може бути пустим": true,
+				"Перевірка статусу відповіді": false
+			},
+			"testPassFailCounts": {
+				"Перевірка наявності обов'язкових полів": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка типів даних у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка: Пробіг не може бути пустим": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка статусу відповіді": {
+					"pass": 0,
+					"fail": 6
+				}
+			},
+			"times": [
+				106,
+				97,
+				95,
+				88,
+				95,
+				110
+			],
+			"allTests": [
+				{
+					"Перевірка наявності обов'язкових полів": true,
+					"Перевірка типів даних у запиті": true,
+					"Перевірка: Пробіг не може бути пустим": true,
+					"Перевірка статусу відповіді": false
+				},
+				{
+					"Перевірка наявності обов'язкових полів": true,
+					"Перевірка типів даних у запиті": true,
+					"Перевірка: Пробіг не може бути пустим": true,
+					"Перевірка статусу відповіді": false
+				},
+				{
+					"Перевірка наявності обов'язкових полів": true,
+					"Перевірка типів даних у запиті": true,
+					"Перевірка: Пробіг не може бути пустим": true,
+					"Перевірка статусу відповіді": false
+				},
+				{
+					"Перевірка наявності обов'язкових полів": true,
+					"Перевірка типів даних у запиті": true,
+					"Перевірка: Пробіг не може бути пустим": true,
+					"Перевірка статусу відповіді": false
+				},
+				{
+					"Перевірка наявності обов'язкових полів": true,
+					"Перевірка типів даних у запиті": true,
+					"Перевірка: Пробіг не може бути пустим": true,
+					"Перевірка статусу відповіді": false
+				},
+				{
+					"Перевірка наявності обов'язкових полів": true,
+					"Перевірка типів даних у запиті": true,
+					"Перевірка: Пробіг не може бути пустим": true,
+					"Перевірка статусу відповіді": false
+				}
+			]
+		},
+		{
+			"id": "0023cadd-102e-48d5-af13-dfb773b93d00",
+			"name": "Creates an expense",
+			"url": "https://qauto.forstudy.space/api/expenses",
+			"time": 99,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Перевірка наявності carId у запиті": true,
+				"Перевірка наявності reportedAt у запиті": true,
+				"Перевірка наявності mileage у запиті": true,
+				"Перевірка наявності liters у запиті": true,
+				"Перевірка наявності totalCost у запиті": true,
+				"Перевірка наявності forceMileage у запиті": true,
+				"Перевірка, що carId є числом": false,
+				"Перевірка, що reportedAt є рядком": true,
+				"Перевірка, що mileage є числом": true,
+				"Перевірка, що liters є числом": true,
+				"Перевірка, що totalCost є числом": true,
+				"Перевірка, що forceMileage є булевим значенням": true,
+				"Перевірка: mileage має бути більше initialMileage": false,
+				"Перевірка статусу відповіді": true,
+				"Перевірка відповіді при некоректному запиті": true
+			},
+			"testPassFailCounts": {
+				"Перевірка наявності carId у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності reportedAt у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності mileage у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності liters у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності totalCost у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка наявності forceMileage у запиті": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка, що carId є числом": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Перевірка, що reportedAt є рядком": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка, що mileage є числом": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка, що liters є числом": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка, що totalCost є числом": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка, що forceMileage є булевим значенням": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка: mileage має бути більше initialMileage": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Перевірка статусу відповіді": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Перевірка відповіді при некоректному запиті": {
+					"pass": 6,
+					"fail": 0
+				}
+			},
+			"times": [
+				105,
+				98,
+				108,
+				98,
+				100,
+				99
+			],
+			"allTests": [
+				{
+					"Перевірка наявності carId у запиті": true,
+					"Перевірка наявності reportedAt у запиті": true,
+					"Перевірка наявності mileage у запиті": true,
+					"Перевірка наявності liters у запиті": true,
+					"Перевірка наявності totalCost у запиті": true,
+					"Перевірка наявності forceMileage у запиті": true,
+					"Перевірка, що carId є числом": false,
+					"Перевірка, що reportedAt є рядком": true,
+					"Перевірка, що mileage є числом": true,
+					"Перевірка, що liters є числом": true,
+					"Перевірка, що totalCost є числом": true,
+					"Перевірка, що forceMileage є булевим значенням": true,
+					"Перевірка: mileage має бути більше initialMileage": false,
+					"Перевірка статусу відповіді": true,
+					"Перевірка відповіді при некоректному запиті": true
+				},
+				{
+					"Перевірка наявності carId у запиті": true,
+					"Перевірка наявності reportedAt у запиті": true,
+					"Перевірка наявності mileage у запиті": true,
+					"Перевірка наявності liters у запиті": true,
+					"Перевірка наявності totalCost у запиті": true,
+					"Перевірка наявності forceMileage у запиті": true,
+					"Перевірка, що carId є числом": false,
+					"Перевірка, що reportedAt є рядком": true,
+					"Перевірка, що mileage є числом": true,
+					"Перевірка, що liters є числом": true,
+					"Перевірка, що totalCost є числом": true,
+					"Перевірка, що forceMileage є булевим значенням": true,
+					"Перевірка: mileage має бути більше initialMileage": false,
+					"Перевірка статусу відповіді": true,
+					"Перевірка відповіді при некоректному запиті": true
+				},
+				{
+					"Перевірка наявності carId у запиті": true,
+					"Перевірка наявності reportedAt у запиті": true,
+					"Перевірка наявності mileage у запиті": true,
+					"Перевірка наявності liters у запиті": true,
+					"Перевірка наявності totalCost у запиті": true,
+					"Перевірка наявності forceMileage у запиті": true,
+					"Перевірка, що carId є числом": false,
+					"Перевірка, що reportedAt є рядком": true,
+					"Перевірка, що mileage є числом": true,
+					"Перевірка, що liters є числом": true,
+					"Перевірка, що totalCost є числом": true,
+					"Перевірка, що forceMileage є булевим значенням": true,
+					"Перевірка: mileage має бути більше initialMileage": false,
+					"Перевірка статусу відповіді": true,
+					"Перевірка відповіді при некоректному запиті": true
+				},
+				{
+					"Перевірка наявності carId у запиті": true,
+					"Перевірка наявності reportedAt у запиті": true,
+					"Перевірка наявності mileage у запиті": true,
+					"Перевірка наявності liters у запиті": true,
+					"Перевірка наявності totalCost у запиті": true,
+					"Перевірка наявності forceMileage у запиті": true,
+					"Перевірка, що carId є числом": false,
+					"Перевірка, що reportedAt є рядком": true,
+					"Перевірка, що mileage є числом": true,
+					"Перевірка, що liters є числом": true,
+					"Перевірка, що totalCost є числом": true,
+					"Перевірка, що forceMileage є булевим значенням": true,
+					"Перевірка: mileage має бути більше initialMileage": false,
+					"Перевірка статусу відповіді": true,
+					"Перевірка відповіді при некоректному запиті": true
+				},
+				{
+					"Перевірка наявності carId у запиті": true,
+					"Перевірка наявності reportedAt у запиті": true,
+					"Перевірка наявності mileage у запиті": true,
+					"Перевірка наявності liters у запиті": true,
+					"Перевірка наявності totalCost у запиті": true,
+					"Перевірка наявності forceMileage у запиті": true,
+					"Перевірка, що carId є числом": false,
+					"Перевірка, що reportedAt є рядком": true,
+					"Перевірка, що mileage є числом": true,
+					"Перевірка, що liters є числом": true,
+					"Перевірка, що totalCost є числом": true,
+					"Перевірка, що forceMileage є булевим значенням": true,
+					"Перевірка: mileage має бути більше initialMileage": false,
+					"Перевірка статусу відповіді": true,
+					"Перевірка відповіді при некоректному запиті": true
+				},
+				{
+					"Перевірка наявності carId у запиті": true,
+					"Перевірка наявності reportedAt у запиті": true,
+					"Перевірка наявності mileage у запиті": true,
+					"Перевірка наявності liters у запиті": true,
+					"Перевірка наявності totalCost у запиті": true,
+					"Перевірка наявності forceMileage у запиті": true,
+					"Перевірка, що carId є числом": false,
+					"Перевірка, що reportedAt є рядком": true,
+					"Перевірка, що mileage є числом": true,
+					"Перевірка, що liters є числом": true,
+					"Перевірка, що totalCost є числом": true,
+					"Перевірка, що forceMileage є булевим значенням": true,
+					"Перевірка: mileage має бути більше initialMileage": false,
+					"Перевірка статусу відповіді": true,
+					"Перевірка відповіді при некоректному запиті": true
+				}
+			]
+		},
+		{
+			"id": "2cc1accd-ed52-45da-8348-66d434a49011",
+			"name": "Edit user's profile",
+			"url": "https://qauto.forstudy.space/api/users/profile",
+			"time": 107,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Тест: Числове значення країни": false
+			},
+			"testPassFailCounts": {
+				"Тест: Некоректна дата народження": {
+					"pass": 0,
+					"fail": 2
+				},
+				"Тест: Числове значення країни": {
+					"pass": 1,
+					"fail": 1
+				},
+				"Перевірка структури успішної відповіді": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Тест: Коректні дані": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Тест: Однолітерне ім'я": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				102,
+				113,
+				108,
+				107,
+				99,
+				107
+			],
+			"allTests": [
+				{
+					"Тест: Некоректна дата народження": false
+				},
+				{
+					"Тест: Числове значення країни": true,
+					"Перевірка структури успішної відповіді": true
+				},
+				{
+					"Тест: Коректні дані": true,
+					"Перевірка структури успішної відповіді": true
+				},
+				{
+					"Тест: Однолітерне ім'я": false
+				},
+				{
+					"Тест: Некоректна дата народження": false
+				},
+				{
+					"Тест: Числове значення країни": false
+				}
+			]
+		},
+		{
+			"id": "75986ca8-a267-45d4-85da-49932a4acd23",
+			"name": "Changes user's password",
+			"url": "https://qauto.forstudy.space/api/users/password",
+			"time": 441,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Password change successful": false,
+				"Bad request error": false,
+				"Not authenticated": false,
+				"Password matches pattern": true,
+				"Passwords match": true
+			},
+			"testPassFailCounts": {
+				"Password change successful": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Bad request error": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Not authenticated": {
+					"pass": 0,
+					"fail": 6
+				},
+				"Password matches pattern": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Passwords match": {
+					"pass": 6,
+					"fail": 0
+				}
+			},
+			"times": [
+				477,
+				425,
+				458,
+				457,
+				456,
+				441
+			],
+			"allTests": [
+				{
+					"Password change successful": false,
+					"Bad request error": false,
+					"Not authenticated": false,
+					"Password matches pattern": true,
+					"Passwords match": true
+				},
+				{
+					"Password change successful": false,
+					"Bad request error": false,
+					"Not authenticated": false,
+					"Password matches pattern": true,
+					"Passwords match": true
+				},
+				{
+					"Password change successful": false,
+					"Bad request error": false,
+					"Not authenticated": false,
+					"Password matches pattern": true,
+					"Passwords match": true
+				},
+				{
+					"Password change successful": false,
+					"Bad request error": false,
+					"Not authenticated": false,
+					"Password matches pattern": true,
+					"Passwords match": true
+				},
+				{
+					"Password change successful": false,
+					"Bad request error": false,
+					"Not authenticated": false,
+					"Password matches pattern": true,
+					"Passwords match": true
+				},
+				{
+					"Password change successful": false,
+					"Bad request error": false,
+					"Not authenticated": false,
+					"Password matches pattern": true,
+					"Passwords match": true
+				}
+			]
+		}
+	],
+	"count": 6,
+	"totalTime": 11666,
+	"collection": {
+		"requests": [
+			{
+				"id": "b1fadec1-ded9-4ad9-b273-3a0ee96c8f85",
+				"method": "OPTIONS"
+			},
+			{
+				"id": "4875352e-77c5-413d-b61c-2cfbc8048bb8",
+				"method": "HEAD"
+			},
+			{
+				"id": "b6e81b18-8a85-4c6a-8b2b-17210293dd3f",
+				"method": "POST"
+			},
+			{
+				"id": "b00078b3-61f0-405c-bb38-ccb5d03f110d",
+				"method": "POST"
+			},
+			{
+				"id": "0e86425c-6dac-4728-be1e-847d7e7cbc90",
+				"method": "POST"
+			},
+			{
+				"id": "0023cadd-102e-48d5-af13-dfb773b93d00",
+				"method": "POST"
+			},
+			{
+				"id": "2cc1accd-ed52-45da-8348-66d434a49011",
+				"method": "PUT"
+			},
+			{
+				"id": "75986ca8-a267-45d4-85da-49932a4acd23",
+				"method": "PUT"
+			},
+			{
+				"id": "cc842d45-fabd-482d-ba6a-7f94f157e766",
+				"method": "DELETE"
+			}
+		]
+	}
+}
