@@ -1,0 +1,1635 @@
+{
+	"info": {
+		"_postman_id": "8c9559f8-0f80-41bb-b091-a3c0e4f24a71",
+		"name": "Test_2025 Optim",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12652027",
+		"_collection_link": "https://apitest-7091.postman.co/workspace/38f61e72-48fe-4558-9de7-82e6e6428c7f/collection/12652027-8c9559f8-0f80-41bb-b091-a3c0e4f24a71?action=share&source=collection_link&creator=12652027"
+	},
+	"item": [
+		{
+			"name": "Option",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is present\", function () {\r",
+							"    pm.expect(pm.response.text()).to.exist;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Access-Control-Allow-Methods header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Access-Control-Allow-Methods\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookies are not present in the response\", function () {\r",
+							"    pm.response.to.not.have.header(\"Set-Cookie\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Prod}}",
+					"host": [
+						"{{URL_Prod}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Option",
+					"originalRequest": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}",
+							"host": [
+								"{{URL}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Feb 2025 18:47:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Access-Control-Request-Headers"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Head",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"// Check if response code is 404\r",
+							"pm.test(\"Verify response code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"// Check if response time is less than 500ms\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"// Check for the existence of required headers\r",
+							"pm.test(\"Verify the existence of required headers\", function () {\r",
+							"    pm.response.to.have.header(\"Server\");\r",
+							"    pm.response.to.have.header(\"Date\");\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    pm.response.to.have.header(\"Content-Length\");\r",
+							"    pm.response.to.have.header(\"Connection\");\r",
+							"    pm.response.to.have.header(\"X-Powered-By\");\r",
+							"    pm.response.to.have.header(\"Vary\");\r",
+							"    pm.response.to.have.header(\"Access-Control-Allow-Credentials\");\r",
+							"    pm.response.to.have.header(\"ETag\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "HEAD",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Prod}}",
+					"host": [
+						"{{URL_Prod}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registers users in the system.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function generateRandomEmail() {\r",
+							"    let randomString = Math.random().toString(36).substring(2, 8);\r",
+							"    return `user_${randomString}@test.com`;\r",
+							"}\r",
+							"\r",
+							"function generateRandomPassword() {\r",
+							"    let chars = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\";\r",
+							"    let password = \"\";\r",
+							"    for (let i = 0; i < 10; i++) {\r",
+							"        password += chars.charAt(Math.floor(Math.random() * chars.length));\r",
+							"    }\r",
+							"    return password;\r",
+							"}\r",
+							"\r",
+							"pm.environment.set(\"randomEmail\", generateRandomEmail());\r",
+							"pm.environment.set(\"randomPassword\", generateRandomPassword());\r",
+							"\r",
+							"pm.test(\"Перевірка наявності поля 'name'\", function () {\r",
+							"    let requestBody = JSON.parse(request.data);\r",
+							"    pm.expect(requestBody).to.have.property(\"name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності поля 'lastName'\", function () {\r",
+							"    let requestBody = JSON.parse(request.data);\r",
+							"    pm.expect(requestBody).to.have.property(\"lastName\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності поля 'email'\", function () {\r",
+							"    let requestBody = JSON.parse(request.data);\r",
+							"    pm.expect(requestBody).to.have.property(\"email\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності поля 'password'\", function () {\r",
+							"    let requestBody = JSON.parse(request.data);\r",
+							"    pm.expect(requestBody).to.have.property(\"password\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності поля 'repeatPassword'\", function () {\r",
+							"    let requestBody = JSON.parse(request.data);\r",
+							"    pm.expect(requestBody).to.have.property(\"repeatPassword\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка формату email\", function () {\r",
+							"    let email = pm.environment.get(\"randomEmail\");\r",
+							"    pm.expect(email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка збігу пароля і повторення пароля\", function () {\r",
+							"    let password = pm.environment.get(\"randomPassword\");\r",
+							"    let repeatPassword = pm.environment.get(\"randomPassword\");\r",
+							"    pm.expect(password).to.eql(repeatPassword);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка мінімальної довжини пароля\", function () {\r",
+							"    let password = pm.environment.get(\"randomPassword\");\r",
+							"    pm.expect(password.length).to.be.at.least(8);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Пароль містить хоча б одну велику літеру\", function () {\r",
+							"    let password = pm.environment.get(\"randomPassword\");\r",
+							"    pm.expect(password).to.match(/(?=.*[A-Z])/);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Пароль містить хоча б одну маленьку літеру\", function () {\r",
+							"    let password = pm.environment.get(\"randomPassword\");\r",
+							"    pm.expect(password).to.match(/(?=.*[a-z])/);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Пароль містить хоча б одну цифру\", function () {\r",
+							"    let password = pm.environment.get(\"randomPassword\");\r",
+							"    pm.expect(password).to.match(/(?=.*\\d)/);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Статус 201 чи 400\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 400]);\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code === 201) {\r",
+							"    pm.test(\"Перевірка структури успішної відповіді\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(jsonData).to.have.property(\"data\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"userId\").that.is.a(\"number\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"distanceUnits\").that.is.a(\"string\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"currency\").that.is.a(\"string\");\r",
+							"    });\r",
+							"} else if (pm.response.code === 400) {\r",
+							"    pm.test(\"Перевірка помилки\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"error\");\r",
+							"        pm.expect(jsonData).to.have.property(\"message\").that.is.a(\"string\");\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Nickolya\",\r\n  \"lastName\": \"Bayer\",\r\n  \"email\": \"{{randomEmail}}\",\r\n  \"password\": \"{{randomPassword}}\",\r\n  \"repeatPassword\": \"{{randomPassword}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Prod}}/auth/signup",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201 created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{email_variable}}\",\r\n  \"password\": \"Qwerty12345\",\r\n  \"repeatPassword\": \"Qwerty12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qauto2.forstudy.space/api/auth/signup",
+							"protocol": "https",
+							"host": [
+								"qauto2",
+								"forstudy",
+								"space"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 03 Feb 2025 09:29:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"70-oCKhkovtaWKPltwQ5jhmPQaKGkc\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sid=s%3Ajn8iHjydgGdiizJYhaKavO7WTwdly0Wz.pkyOYdNAcor3VWc%2F1Kx5oLZiSRy1XdBN5GaeuY1MpwE; Domain=.forstudy.space; Path=/; Expires=Tue, 04 Feb 2025 09:29:14 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"userId\": 75296,\n        \"photoFilename\": \"default-user.png\",\n        \"distanceUnits\": \"km\",\n        \"currency\": \"usd\"\n    }\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{email_variable}}\",\r\n  \"password\": \"{{pass_variable}}\",\r\n  \"repeatPassword\": \"{{pass_variable}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}auth/signup",
+							"host": [
+								"{{URL}}auth"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 03 Feb 2025 11:38:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"70-3MV/2UJVlUGR2Srx4d1oUadNmi0\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sid=s%3Ajn8iHjydgGdiizJYhaKavO7WTwdly0Wz.pkyOYdNAcor3VWc%2F1Kx5oLZiSRy1XdBN5GaeuY1MpwE; Domain=.forstudy.space; Path=/; Expires=Tue, 04 Feb 2025 11:38:53 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"userId\": 75304,\n        \"photoFilename\": \"default-user.png\",\n        \"distanceUnits\": \"km\",\n        \"currency\": \"usd\"\n    }\n}"
+				},
+				{
+					"name": "201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{email_variable}}\",\r\n  \"password\": \"{{pass_variable}}\",\r\n  \"repeatPassword\": \"{{pass_variable}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}auth/signup",
+							"host": [
+								"{{URL}}auth"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 03 Feb 2025 20:29:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"70-aVOxufOCRL646QiAtE6YBVHNOOA\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sid=s%3Ajn8iHjydgGdiizJYhaKavO7WTwdly0Wz.pkyOYdNAcor3VWc%2F1Kx5oLZiSRy1XdBN5GaeuY1MpwE; Domain=.forstudy.space; Path=/; Expires=Tue, 04 Feb 2025 20:29:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"userId\": 75344,\n        \"photoFilename\": \"default-user.png\",\n        \"distanceUnits\": \"km\",\n        \"currency\": \"usd\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Перевірка: Код відповіді 200 або 400\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 400]);\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code === 200) {\r",
+							"    pm.test(\"Перевірка: Статус відповіді 'ok'\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"ok\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: Поле 'data' існує\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"data\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: 'userId' є числом\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData.data).to.have.property(\"userId\").that.is.a(\"number\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: 'distanceUnits' є рядком\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData.data).to.have.property(\"distanceUnits\").that.is.a(\"string\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: 'currency' є рядком\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData.data).to.have.property(\"currency\").that.is.a(\"string\");\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (pm.response.code === 400) {\r",
+							"    pm.test(\"Перевірка: Статус відповіді 'error'\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"error\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: Поле 'message' існує і є рядком\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"message\").that.is.a(\"string\");\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const testCases = [\r",
+							"    { email: \"{{randomEmail}}\", password: \"{{randomPassword}}\", description: \"Коректні дані\" },\r",
+							"    { email: \"\", password: \"{{randomPassword}}\", description: \"Порожній email\" },\r",
+							"    { email: \"invalidEmail\", password: \"{{randomPassword}}\", description: \"Некоректний email\" },\r",
+							"    { email: \"{{randomEmail}}\", password: \"\", description: \"Порожній пароль\" },\r",
+							"    { email: \"{{randomEmail}}\", password: \"123\", description: \"Занадто короткий пароль\" },\r",
+							"    { email: \"\", password: \"\", description: \"Обидва поля порожні\" }\r",
+							"];\r",
+							"\r",
+							"let index = pm.environment.get(\"testIndex\") || 0;\r",
+							"\r",
+							"if (index >= testCases.length) {\r",
+							"    pm.environment.set(\"testIndex\", 0);\r",
+							"} else {\r",
+							"    let testCase = testCases[index];\r",
+							"\r",
+							"    pm.environment.set(\"testEmail\", testCase.email);\r",
+							"    pm.environment.set(\"testPassword\", testCase.password);\r",
+							"    pm.environment.set(\"testDescription\", testCase.description);\r",
+							"\r",
+							"    pm.environment.set(\"testIndex\", index + 1);\r",
+							"}\r",
+							"\r",
+							"let email = pm.environment.get(\"testEmail\");\r",
+							"let password = pm.environment.get(\"testPassword\");\r",
+							"let description = pm.environment.get(\"testDescription\");\r",
+							"\r",
+							"pm.test(\"Перевірка: \" + description, function () {\r",
+							"    pm.expect(description).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"if (description === \"Коректні дані\") {\r",
+							"    pm.test(\"Перевірка: Email має правильний формат\", function () {\r",
+							"        pm.expect(email).to.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/);\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: Пароль містить більше 5 символів\", function () {\r",
+							"        pm.expect(password).to.have.length.above(5);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (description === \"Порожній email\") {\r",
+							"    pm.test(\"Перевірка: Email є порожнім\", function () {\r",
+							"        pm.expect(email).to.be.empty;\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (description === \"Некоректний email\") {\r",
+							"    pm.test(\"Перевірка: Email має некоректний формат\", function () {\r",
+							"        pm.expect(email).to.not.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (description === \"Порожній пароль\") {\r",
+							"    pm.test(\"Перевірка: Пароль є порожнім\", function () {\r",
+							"        pm.expect(password).to.be.empty;\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (description === \"Занадто короткий пароль\") {\r",
+							"    pm.test(\"Перевірка: Пароль має менше 6 символів\", function () {\r",
+							"        pm.expect(password).to.have.length.below(6);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (description === \"Обидва поля порожні\") {\r",
+							"    pm.test(\"Перевірка: Email є порожнім\", function () {\r",
+							"        pm.expect(email).to.be.empty;\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: Пароль є порожнім\", function () {\r",
+							"        pm.expect(password).to.be.empty;\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"{{randomEmail}}\",\r\n  \"password\": \"{{randomPassword}}\",\r\n  \"remember\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Prod}}/auth/signin",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{emailRandom}}\",\r\n  \"password\": \"{{passRandom}}\",\r\n  \"remember\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}auth/signin",
+							"host": [
+								"{{URL}}auth"
+							],
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 03 Feb 2025 20:32:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "30"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "29"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1738614777"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"70-aVOxufOCRL646QiAtE6YBVHNOOA\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"userId\": 75344,\n        \"photoFilename\": \"default-user.png\",\n        \"distanceUnits\": \"km\",\n        \"currency\": \"usd\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Creates new car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseCode = pm.response.code;\r",
+							"let responseData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Перевірка статусу відповіді\", function () {\r",
+							"    pm.expect(responseCode).to.be.oneOf([200, 400, 401, 404]);\r",
+							"});\r",
+							"\r",
+							"if (responseCode === 200) {\r",
+							"    pm.test(\"Перевірка структури успішної відповіді\", function () {\r",
+							"        pm.expect(responseData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(responseData).to.have.property(\"data\");\r",
+							"    });\r",
+							"\r",
+							"     pm.test(\"Перевірка структури об'єкта 'data'\", function () {\r",
+							"        pm.expect(responseData.data).to.have.property(\"id\").that.is.a(\"number\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"carBrandId\").that.is.a(\"number\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"carModelId\").that.is.a(\"number\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"initialMileage\").that.is.a(\"number\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"updatedMileageAt\").that.is.a(\"string\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"mileage\").that.is.a(\"number\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"brand\").that.is.a(\"string\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"model\").that.is.a(\"string\");\r",
+							"        pm.expect(responseData.data).to.have.property(\"logo\").that.is.a(\"string\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: Марка та модель автомобіля не порожні\", function () {\r",
+							"        pm.expect(responseData.data.brand).to.not.be.empty;\r",
+							"        pm.expect(responseData.data.model).to.not.be.empty;\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка: Пробіг співпадає з відправленим\", function () {\r",
+							"        pm.expect(responseData.data.mileage).to.equal(requestBody.mileage);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (responseCode === 400) {\r",
+							"    pm.test(\"Перевірка відповіді при некоректному запиті\", function () {\r",
+							"        pm.expect(responseData).to.have.property(\"status\", \"error\");\r",
+							"        pm.expect(responseData).to.have.property(\"message\").that.is.a(\"string\");\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (responseCode === 401) {\r",
+							"    pm.test(\"Перевірка відповіді при відсутності авторизації\", function () {\r",
+							"        pm.expect(responseData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(responseData).to.have.property(\"message\", \"Not authenticated\");\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (responseCode === 404) {\r",
+							"    pm.test(\"Перевірка відповіді при відсутності ресурсу\", function () {\r",
+							"        pm.expect(responseData).to.have.property(\"status\", \"error\");\r",
+							"        pm.expect(responseData).to.have.property(\"message\", \"Not found\");\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"pm.collectionVariables.set(\"carId\", data.id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let requestBody = pm.request.body ? JSON.parse(pm.request.body.raw) : {};\r",
+							"\r",
+							"pm.test(\"Перевірка наявності обов'язкових полів\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"carBrandId\");\r",
+							"    pm.expect(requestBody).to.have.property(\"carModelId\");\r",
+							"    pm.expect(requestBody).to.have.property(\"mileage\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка типів даних у запиті\", function () {\r",
+							"    pm.expect(requestBody.carBrandId).to.be.a(\"number\");\r",
+							"    pm.expect(requestBody.carModelId).to.be.a(\"number\");\r",
+							"    pm.expect(requestBody.mileage).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка: Пробіг не може бути пустим\", function () {\r",
+							"    pm.expect(requestBody.mileage).to.be.at.least(0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"carBrandId\": 1,\r\n  \"carModelId\": 1,\r\n  \"mileage\":111\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Prod}}/cars",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Creates new car",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carBrandId\": 1,\r\n  \"carModelId\": 1,\r\n  \"mileage\":{{mileage}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Feb 2025 18:38:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "231"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e7-FynMMm1OvaAEtIJc4fot60Slkrg\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"id\": 244929,\n        \"carBrandId\": 1,\n        \"carModelId\": 1,\n        \"initialMileage\": 1,\n        \"updatedMileageAt\": \"2025-02-07T18:38:20.725Z\",\n        \"carCreatedAt\": \"2025-02-07T18:38:20.725Z\",\n        \"mileage\": 1,\n        \"brand\": \"Audi\",\n        \"model\": \"TT\",\n        \"logo\": \"audi.png\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Creates an expense",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let day = new Date();\r",
+							"let fullDate = day.getFullYear() + \"-\" +(day.getMonth() + 1) + \"-\" + day.getDate()\r",
+							"pm.collectionVariables.set(\"fullDate\", fullDate);\r",
+							"\r",
+							"let newMilage = pm.collectionVariables.get(\"mileage\") + 1;\r",
+							"pm.collectionVariables.set(\"newMilage\", newMilage);\r",
+							"pm.collectionVariables.set(\"mileage\", newMilage);\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let requestBody = pm.request.body ? JSON.parse(pm.request.body.raw) : {};\r",
+							"\r",
+							"pm.test(\"Перевірка наявності carId у запиті\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"carId\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності reportedAt у запиті\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"reportedAt\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності mileage у запиті\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"mileage\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності liters у запиті\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"liters\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності totalCost у запиті\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"totalCost\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка наявності forceMileage у запиті\", function () {\r",
+							"    pm.expect(requestBody).to.have.property(\"forceMileage\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що carId є числом\", function () {\r",
+							"    pm.expect(requestBody.carId).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що reportedAt є рядком\", function () {\r",
+							"    pm.expect(requestBody.reportedAt).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що mileage є числом\", function () {\r",
+							"    pm.expect(requestBody.mileage).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що liters є числом\", function () {\r",
+							"    pm.expect(requestBody.liters).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що totalCost є числом\", function () {\r",
+							"    pm.expect(requestBody.totalCost).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що forceMileage є булевим значенням\", function () {\r",
+							"    pm.expect(requestBody.forceMileage).to.be.a(\"boolean\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка: mileage має бути більше initialMileage\", function () {\r",
+							"    let initialMileage = pm.environment.get(\"initialMileage\");\r",
+							"    pm.expect(requestBody.mileage).to.be.above(initialMileage);\r",
+							"});\r",
+							"\r",
+							"let responseCode = pm.response.code;\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Перевірка статусу відповіді\", function () {\r",
+							"    pm.expect(responseCode).to.be.oneOf([200, 400, 401, 404]);\r",
+							"});\r",
+							"\r",
+							"if (responseCode === 200) {\r",
+							"    pm.test(\"Перевірка структури успішної відповіді\", function () {\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(jsonData).to.have.property(\"data\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Перевірка, що 'id' є числом\", function () {\r",
+							"    pm.expect(jsonData.data).to.have.property(\"id\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що 'carId' є числом\", function () {\r",
+							"    pm.expect(jsonData.data).to.have.property(\"carId\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що 'reportedAt' є рядком\", function () {\r",
+							"    pm.expect(jsonData.data).to.have.property(\"reportedAt\").that.is.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що 'mileage' є числом\", function () {\r",
+							"    pm.expect(jsonData.data).to.have.property(\"mileage\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що 'liters' є числом\", function () {\r",
+							"    pm.expect(jsonData.data).to.have.property(\"liters\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Перевірка, що 'totalCost' є числом\", function () {\r",
+							"    pm.expect(jsonData.data).to.have.property(\"totalCost\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"    pm.test(\"Перевірка: mileage у відповіді співпадає з запитом\", function () {\r",
+							"        pm.expect(jsonData.data.mileage).to.equal(requestBody.mileage);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (responseCode === 400) {\r",
+							"    pm.test(\"Перевірка відповіді при некоректному запиті\", function () {\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"error\");\r",
+							"        pm.expect(jsonData).to.have.property(\"message\").that.is.a(\"string\");\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (responseCode === 401) {\r",
+							"    pm.test(\"Перевірка відповіді при відсутності авторизації\", function () {\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(jsonData).to.have.property(\"message\", \"Not authenticated\");\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"if (responseCode === 404) {\r",
+							"    pm.test(\"Перевірка відповіді при відсутності ресурсу\", function () {\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"error\");\r",
+							"        pm.expect(jsonData).to.have.property(\"message\", \"Not found\");\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"carId\": {{carId}},\r\n  \"reportedAt\": \"{{fullDate}}\",\r\n  \"mileage\": {{newMilage}},\r\n  \"liters\": 11,\r\n  \"totalCost\": 11,\r\n  \"forceMileage\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Prod}}/expenses",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"expenses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Creates an expense",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carId\": {{carId}},\r\n  \"reportedAt\": \"{{fullDate}}\",\r\n  \"mileage\": {{newMilage}},\r\n  \"liters\": 11,\r\n  \"totalCost\": 11,\r\n  \"forceMileage\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/expenses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"expenses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Feb 2025 18:39:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"71-KmNxYwvBD3yQ1qGPaZVB/aAQuHg\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"carId\": 244929,\n        \"reportedAt\": \"2025-2-7\",\n        \"liters\": 11,\n        \"id\": 95806,\n        \"mileage\": 2,\n        \"totalCost\": 11\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit user's profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Тест: \" + pm.environment.get(\"testDescription\"), function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 400, 401]);\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code === 200) {\r",
+							"    pm.test(\"Перевірка структури успішної відповіді\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(jsonData).to.have.property(\"data\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"userId\").that.is.a(\"number\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"photoFilename\").that.is.a(\"string\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"name\").that.is.a(\"string\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"lastName\").that.is.a(\"string\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"dateBirth\").that.is.a(\"string\");\r",
+							"        pm.expect(jsonData.data).to.have.property(\"country\").that.is.a(\"string\");\r",
+							"    });\r",
+							"} else if (pm.response.code === 400) {\r",
+							"    pm.test(\"Перевірка структури помилки (400)\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"error\");\r",
+							"        pm.expect(jsonData).to.have.property(\"message\").that.is.a(\"string\");\r",
+							"    });\r",
+							"} else if (pm.response.code === 401) {\r",
+							"    pm.test(\"Перевірка структури помилки (401)\", function () {\r",
+							"        let jsonData = pm.response.json();\r",
+							"        pm.expect(jsonData).to.have.property(\"status\", \"ok\");\r",
+							"        pm.expect(jsonData).to.have.property(\"message\", \"Not authenticated\");\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"const testCases = [\r",
+							"    { name: \"Elina\", lastName: \"Portu\", dateBirth: \"2021-03-17T15:21:05.000Z\", country: \"Ukraine\", description: \"Коректні дані\" },\r",
+							"    { name: \"\", lastName: \"Portu\", dateBirth: \"2021-03-17T15:21:05.000Z\", country: \"Ukraine\", description: \"Порожнє ім'я\" },\r",
+							"    { name: \"J\", lastName: \"Portu\", dateBirth: \"2021-03-17T15:21:05.000Z\", country: \"Ukraine\", description: \"Однолітерне ім'я\" },\r",
+							"    { name: \"Elina\", lastName: \"\", dateBirth: \"2021-03-17T15:21:05.000Z\", country: \"Ukraine\", description: \"Порожнє прізвище\" },\r",
+							"    { name: \"Elina\", lastName: \"Portu\", dateBirth: \"not-a-date\", country: \"Ukraine\", description: \"Некоректна дата народження\" },\r",
+							"    { name: \"Elina\", lastName: \"Portu\", dateBirth: \"2021-03-17T15:21:05.000Z\", country: \"\", description: \"Порожня країна\" },\r",
+							"    { name: \"Elina\", lastName: \"Portu\", dateBirth: \"2021-03-17T15:21:05.000Z\", country: \"1234\", description: \"Числове значення країни\" }\r",
+							"];\r",
+							"\r",
+							"let photoFilename = \"user-\" + Date.now() + \".jpg\"; \r",
+							"pm.environment.set(\"testPhoto\", photoFilename);\r",
+							"\r",
+							"\r",
+							"let index = pm.environment.get(\"testIndex\") || 0;\r",
+							"\r",
+							"if (index >= testCases.length) {\r",
+							"    pm.environment.set(\"testIndex\", 0);\r",
+							"} else {\r",
+							"    let testCase = testCases[index];\r",
+							"\r",
+							"    pm.environment.set(\"testName\", testCase.name);\r",
+							"    pm.environment.set(\"testLastName\", testCase.lastName);\r",
+							"    pm.environment.set(\"testDateBirth\", testCase.dateBirth);\r",
+							"    pm.environment.set(\"testCountry\", testCase.country);\r",
+							"    pm.environment.set(\"testDescription\", testCase.description);\r",
+							"\r",
+							"    pm.environment.set(\"testIndex\", index + 1);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"photo\": \"{{testPhoto}}\",\r\n  \"name\": \"{{testName}}\",\r\n  \"lastName\": \"{{testLastName}}\",\r\n  \"dateBirth\": \"{{testDateBirth}}\",\r\n  \"country\": \"{{testCountry}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Prod}}/users/profile",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Changes user's password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Password change successful\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.jsonBody('status', 'ok');\r",
+							"    pm.response.to.have.jsonBody('data.userId');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bad request error\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"    pm.response.to.have.jsonBody('status', 'error');\r",
+							"    pm.response.to.have.jsonBody('message', 'Bad request');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Not authenticated\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"    pm.response.to.have.jsonBody('status', 'ok');\r",
+							"    pm.response.to.have.jsonBody('message', 'Not authenticated');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Password matches pattern\", function () {\r",
+							"    let passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).*$/;\r",
+							"    pm.expect(pm.environment.get(\"passNew\")).to.match(passwordPattern);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Passwords match\", function () {\r",
+							"    let oldPassword = pm.environment.get(\"randomPassword\");\r",
+							"    let newPassword = pm.environment.get(\"passNew\");\r",
+							"    pm.expect(oldPassword).to.not.equal(newPassword); \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let oldPassword = pm.environment.get(\"randomPassword\");\r",
+							"\r",
+							"function generatePassword() {\r",
+							"    const chars = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\";\r",
+							"    let password = \"\";\r",
+							"    for (let i = 0; i < 12; i++) { // Мінімум 12 символів\r",
+							"        password += chars.charAt(Math.floor(Math.random() * chars.length));\r",
+							"    }\r",
+							"    return password;\r",
+							"}\r",
+							"\r",
+							"let passNew = generatePassword();\r",
+							"\r",
+							"let passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).*$/;\r",
+							"if (!passwordPattern.test(passNew)) {\r",
+							"    passNew = \"Test1Password\";\r",
+							"}\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.environment.set(\"passNew\", passNew);\r",
+							"\r",
+							"\r",
+							"pm.request.body.raw = JSON.stringify({\r",
+							"    \"oldPassword\": oldPassword,  \r",
+							"    \"password\": passNew,  \r",
+							"    \"repeatPassword\": passNew  \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oldPassword\": \"{{randomPassword}}\",\r\n  \"password\": \"{{passNew}}\",\r\n  \"repeatPassword\": \"{{passNew}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Prod}}/users/password",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"users",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletes user's account and current user session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Cookies are not present in the response\", function () {\r",
+							"    pm.response.to.not.have.header('Set-Cookie');\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "​{{URL}}/users",
+					"host": [
+						"​{{URL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ends up user session. Clears session cookies.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Prod}}/auth/logout",
+					"host": [
+						"{{URL_Prod}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}auth/logout",
+							"host": [
+								"{{URL}}auth"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Feb 2025 14:30:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "remember_me=; Domain=.forstudy.space; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sid=; Domain=.forstudy.space; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f-VaSQ4oDUiZblZNAEkkN+sX+q3Sg\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "email_variable",
+			"value": ""
+		},
+		{
+			"key": "pass_variable",
+			"value": ""
+		},
+		{
+			"key": "emailRandom",
+			"value": ""
+		},
+		{
+			"key": "passRandom",
+			"value": ""
+		},
+		{
+			"key": "passNew",
+			"value": ""
+		},
+		{
+			"key": "name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "mileage",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "carId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "fullDate",
+			"value": ""
+		},
+		{
+			"key": "newMilage",
+			"value": ""
+		},
+		{
+			"key": "expensesId",
+			"value": ""
+		},
+		{
+			"key": "mileageNew",
+			"value": ""
+		},
+		{
+			"key": "newCarId",
+			"value": ""
+		}
+	]
+}
